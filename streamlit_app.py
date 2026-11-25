@@ -4,7 +4,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
@@ -20,7 +20,7 @@ def load_rag_components():
     loader = PyPDFLoader("data/psre473_en_om_a1 manual.pdf")
     pages = loader.load()
 
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = FastEmbedEmbeddings()
 
     if not os.path.exists("./chroma_db"):
         splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
