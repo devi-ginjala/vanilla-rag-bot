@@ -2,6 +2,9 @@
 
 A Retrieval-Augmented Generation (RAG) chatbot built from scratch to answer technical queries from a 76-page Yamaha Keyboard user manual with strict hallucination control.
 
+## Live Demo
+- Streamlit App: https://vanilla-rag-bot.streamlit.app/
+
 ## Tech Stack
 - Language: Python
 - Framework: LangChain
